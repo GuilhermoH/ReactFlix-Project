@@ -17,10 +17,19 @@ function Home() {
                 }
             })
             setFilms(response.data.results.slice(0,10))
+            setLoad(false)
         }
 
         loadFilms();
     }, [])
+
+    if(load){
+        return (
+            <div className="loading">
+                <h2>Loading ...</h2>
+            </div>
+        )
+    }
     return (
         <div className="container">
             <div className="listOfFilms">
