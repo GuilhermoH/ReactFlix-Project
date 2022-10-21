@@ -1,3 +1,6 @@
+body{
+    background-color: dimgrey;
+}
 .listOfFilms{
     max-width: 800px;
     margin: 14px auto;
@@ -5,16 +8,22 @@
 
 .listOfFilms article{
     width: 100%;
-    background-color: white;
+    background-color: black;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: 19px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .listOfFilms strong{
     margin-bottom: 14px;
     text-align: center;
-    font-size: 22px;
+    font-size: 29px;
     display: block;
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+
 }
 .listOfFilms img{
     width: 900px;
@@ -24,6 +33,7 @@
     display: block;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+
 
 
 }
@@ -44,5 +54,25 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+
+}
+#enter{
+    background-color: black;
+    color: white;
+    border-style: solid;
+    border-color: aqua;
+    border-radius: 20px;
+    transition: 0.9s;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+#title{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
+}
+#enter:hover{
+    background-color: aqua;
+
 
 }

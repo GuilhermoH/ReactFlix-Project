@@ -36,9 +36,9 @@ function Home() {
                 {films.map((films) => {
                     return (
                         <article key={films.id}>
-                            <strong>{films.title}</strong>
+                            <strong id="title">{films.title}</strong>
                             <img src={`https://image.tmdb.org/t/p/original/${films.poster_path}`}/>
-                            <Link to={`/films/${films.id}`}>Acessar</Link>
+                            <Link id="enter" to={`/films/${films.id}`}>Acessar</Link>
                         </article>
                     )
                 })}

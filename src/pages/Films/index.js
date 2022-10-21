@@ -1,9 +1,13 @@
 import {useState, useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import api from "../../services/api";
+import './film.css'
+
+
 
 function Films() {
     const {id} = useParams()
+    const navegation = useNavigate()
     const [loading, setLoading] = useState(true)
     const [film, setFilm] = useState({})
 
@@ -21,15 +25,46 @@ function Films() {
                 })
                 .catch((response) => {
                     console.log("NAO ACHEI")
+                    navegation("/", {replace: true})
+                    return;
                 })
         }
 
         loadFilm()
 
-    }, [])
+        return () => {
+            console.log("COMPONENTE")
+        }
+
+
+        if (loading) {
+            return (
+                <div className="film-info">
+                    <h2>Carregando filme</h2>
+                </div>
+            )
+        }
+
+    }, [navegation, id])
+
+
     return (
-        <div>
-            <h1>Acessando Filme {id}</h1>
+        <div className="film-info">
+            <h1>{film.title}</h1>
+            <img src={`https://image.tmdb.org/t/p/original/${film.backdrop_path}`}/>
+            <h3>Sinopse</h3>
+            <span>{film.overview}</span><br/>
+            <strong>Avaliação : {film.vote_average}/10</strong>
+
+            <div className="area-button">
+                <button>
+                    <a target="_blank"
+                       href={`https://www.youtube.com/results?search_query=${film.title} Trailer`}>
+                        Trailer
+                    </a>
+                </button>
+
+            </div>
         </div>
     )
 }
